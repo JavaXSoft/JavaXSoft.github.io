@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.jpg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnScr1pt</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #000 20%, #cc0000 20%, #cc0000 40%, #000 40%, #000 60%, #cc0000 60%, #cc0000 80%, #000 80%);
+            background-size: 80px 80px; /* Increased size for a slightly different look */
+            color: #eee;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards, moveBackground 10s linear infinite; /* Added background animation */
+        }
+    
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    
+        @keyframes moveBackground {
+            from { background-position: 0 0; }
+            to { background-position: 80px 0; } /* Move horizontally by the background-size */
+        }
+    
+        /* Top Links (GitHub) */
+        .top-links {
+            text-align: right;
+            padding: 10px 20px 0;
+            width: 90%;
+            max-width: 960px;
+        }
+        .top-links a {
+            color: #ccbbbb;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .top-links a:hover {
+            color: #ffaaaa;
+        }
+    
+        header {
+            background-color: rgba(26, 26, 26, 0.8);
+            color: #ffdddd;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            width: 90%;
+            max-width: 960px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideInDown 0.5s ease-out 0.1s forwards;
+        }
+    
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ffaaaa;
+        }
+        header p {
+            font-size: 1.1em;
+            color: #ccbbbb;
+        }
+    
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            width: 90%;
+            max-width: 960px;
+            margin-bottom: 20px;
+        }
+    
+        /* Download Section */
+        .download-section {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+            width: 80%;
+            max-width: 600px;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: fadeInScale 0.4s ease-out 0.2s forwards;
+        }
+    
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    
+        .download-title {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffbbbb;
+        }
+        .download-description {
+            margin-bottom: 20px;
+            color: #ccbbbb;
+        }
+        .download-button {
+            display: inline-block;
+            background-color: #cc0000;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+        }
+        .download-button:hover {
+            background-color: #aa0000;
+            transform: scale(1.05);
+        }
+    
+        /* Developer Team Section */
+        .developer-team {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+            width: 80%;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInUp 0.5s ease-out 0.3s forwards;
+        }
+    
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    
+        .developer-team-title {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffbbbb;
+        }
+        .developer-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        .developer-avatar-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #cc0000;
+            transition: transform 0.3s ease-in-out;
+        }
+        .developer-avatar-container:hover {
+            transform: rotate(15deg) scale(1.1);
+        }
+        .developer-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .developer-name {
+            font-size: 1.5em;
+            color: #eee;
+        }
+    
+        /* Other Programs Section */
+        .other-programs {
+            width: 80%;
+            max-width: 800px;
+        }
+        .program-item {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .program-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffbbbb;
+        }
+        .program-description {
+            margin-bottom: 15px;
+            color: #ccbbbb;
+        }
+    
+        footer {
+            background-color: rgba(26, 26, 26, 0.8);
+            color: #ccbbbb;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #333;
+            width: 90%;
+            max-width: 960px;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInUp 0.5s ease-out 0.4s forwards;
+        }
+    
+        /* Bottom Links (Discord) */
+        .bottom-links {
+            margin-bottom: 10px;
+        }
+        .bottom-links a {
+            color: #ccbbbb;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .bottom-links a:hover {
+            color: #ffaaaa;
+        }
+        footer p {
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-links">
+            <a href="https://github.com/JavaXSoft" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+        <h1>Releases</h1>
+        <p>In development!</p>
+    </header>
+
+    <main>
+        <div class="download-section">
+            <h2 class="download-title">Loadstone pre-alpha</h2>
+            <p class="download-description">Click the button below to download the latest version of my Loadstone.  ->  [MEGA]</p>
+            <a href="https://mega.nz/file/UwgVAABR#ffcVU4_cJtHYMaBjIPw-LnWts9uK05YR4pQ4JwSID9g" class="download-button">Download .zip</a>
+        </div>
+
+        <div class="developer-team">
+            <h2 class="developer-team-title">Developer Team</h2>
+            <div class="developer-info">
+                <div class="developer-avatar-container">
+                    <img src="MadaraAvatar.jpg" alt="unScr1pt Avatar" class="developer-avatar">
+                </div>
+                <h3 class="developer-name">unScr1pt</h3>
+            </div>
+        </div>
+
+        <div class="other-programs">
+            </div>
+    </main>
+
+    <footer>
+        <div class="bottom-links">
+            <a href="https://discord.gg/CQbcASZe" target="_blank" rel="noopener noreferrer">Discord</a>
+        </div>
+        <p>&copy; 2025 unScr1pt</p>
+    </footer>
+</body>
+</html>
